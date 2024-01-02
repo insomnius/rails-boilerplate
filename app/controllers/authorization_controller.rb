@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 class AuthorizationController < ApplicationController
-  before_action do
-    doorkeeper_authorize! unless params['action'] == 'index'
-  end
+  before_action :doorkeeper_authorize!
+  skip_before_action :doorkeeper_authorize!, only: %i[index]
 
   def index
     render :index
