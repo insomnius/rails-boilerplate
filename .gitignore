@@ -36,3 +36,5 @@
 
 private_key.pem
 public_key.pem
+/app/assets/builds/*
+!/app/assets/builds/.keep
