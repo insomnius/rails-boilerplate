@@ -5,4 +5,5 @@
 
 require_relative 'config/application'
 
+Dotenv.load!
 Rails.application.load_tasks

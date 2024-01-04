@@ -53,15 +53,18 @@ class ApplicationController < ActionController::Base
   end
 
   def not_found
-    render_error(:not_found, 'not found')
+    @error_message = 'Page Not Found'
+    render 'error/index', status: 404
   end
 
   def internal_server_error
-    render_error(:internal_server_error, 'internal server error')
+    @error_message = 'Internal Server Error'
+    render 'error/index', status: 500
   end
 
   def forbidden
-    render_error(:forbidden, 'access is forbidden')
+    @error_message = 'Access Is Forbidden'
+    render 'error/index', status: 401
   end
 
   def catch_unrecognized

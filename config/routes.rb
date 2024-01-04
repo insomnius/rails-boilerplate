@@ -12,6 +12,14 @@ Rails.application.routes.draw do
     post 'login' => 'authorization#login'
     post 'logout' => 'authorization#logout'
   end
-  # Defines the root path route ("/")
-  # root "posts#index"
+
+  scope :home do
+    get '' => 'home#index'
+  end
+
+  # Errors
+  get '/403', to: 'error#forbidden'
+  get '/404', to: 'error#not_found'
+  get '/500', to: 'error#internal_server_error'
+  match '*path', to: 'error#catch_unrecognized', via: :all
 end

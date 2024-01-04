@@ -97,5 +97,5 @@ Rails.application.configure do
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 
-  config.hotwire_livereload.listen_paths << Rails.root.join("app/assets/builds")
+  config.hotwire_livereload.listen_paths << Rails.root.join('app/assets/builds')
 end
