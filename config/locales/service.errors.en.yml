@@ -1,4 +1,4 @@
-id:
+en:
   authorization_service:
     error:
       authorization_failed: Failed to do an authorization request

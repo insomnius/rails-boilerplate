@@ -265,7 +265,10 @@ Doorkeeper.configure do
   # Check out https://github.com/doorkeeper-gem/doorkeeper/wiki/Changing-how-clients-are-authenticated
   # for more information on customization
   #
-  access_token_methods :from_bearer_authorization
+  access_token_methods lambda { |request|
+                         cookies = ActionDispatch::Cookies::CookieJar.build(request, request.cookies)
+                         cookies.signed['jwt_token']
+                       }
 
   # Forces the usage of the HTTPS protocol in non-native redirect uris (enabled
   # by default in non-development environments). OAuth2 delegates security in

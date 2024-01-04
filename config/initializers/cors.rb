@@ -11,14 +11,18 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
     if Rails.env.development?
       origins '*'
+
+      resource '*',
+               headers: :any,
+               methods: %i[get post put patch delete options head]
     else
       # replace this origins with the one you needs
       origins '*.insomnius.id'
-    end
 
-    resource '*',
-             headers:     :any,
-             methods:     %i[get post put patch delete options head],
-             credentials: true
+      resource '*',
+               headers:     :any,
+               methods:     %i[get post put patch delete options head],
+               credentials: true
+    end
   end
 end

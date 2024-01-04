@@ -26,6 +26,8 @@ module AuthorizationService
       end
 
       access_token
+    rescue
+      raise Error::AuthorizationFailed
     end
 
     private
