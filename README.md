@@ -1,24 +1,31 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is my rails boilerplate for project / product that I create.
 
-Things you may want to cover:
+## How to run??
 
-* Ruby version
+Start the dependencies with docker compose.
 
-* System dependencies
+```
+docker-compose up -d
+```
 
-* Configuration
+Generate public and private key for the app.
 
-* Database creation
+```
+make gen_app_private_key
+make gen_app_public_key
+```
 
-* Database initialization
+Create database and do the migrations.
 
-* How to run the test suite
+```
+rails db:create
+rails db:migrate
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Run the server
 
-* Deployment instructions
-
-* ...
+```
+rails s
+```
