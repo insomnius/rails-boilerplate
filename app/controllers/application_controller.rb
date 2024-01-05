@@ -30,6 +30,12 @@ class ApplicationController < ActionController::Base
     render status: :bad_request, json: { errors: [{ detail: 'invalid parameters sent by the client' }] }
   end
 
+  rescue_from Doorkeeper::Errors::TokenForbidden, Doorkeeper::Errors::TokenExpired, Doorkeeper::Errors::TokenUnknown, Doorkeeper::Errors::TokenRevoked do |_error|
+    cookies.delete :jwt_token
+
+    redirect_to '/'
+  end
+
   def current_user
     return nil unless current_token
 
