@@ -39,7 +39,7 @@ class AuthorizationController < ApplicationController
 
   def logout
     cookies.delete :jwt_token
-
+    AuthorizationService.logout(doorkeeper_token)
     redirect_to '/'
   end
 end

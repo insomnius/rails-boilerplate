@@ -5,23 +5,23 @@ module AuthorizationService
     include Contracts::Core
     include Contracts::Builtin
 
-    attr_accessor :request
+    attr_accessor :token
 
-    Contract Request::Authorization::Logout => Any
-    def initialize(request)
-      @request = request
+    Contract Doorkeeper::AccessToken => Any
+    def initialize(token)
+      @token = token
 
       super()
     end
 
     def perform
-      access_token.delete
+      access_token.revoke
     end
 
     private
 
     def access_token
-      @access_token ||= Doorkeeper::AccessToken.where(token: request.token).first
+      @access_token ||= Doorkeeper::AccessToken.where(token: token.token).first
     end
   end
 end
