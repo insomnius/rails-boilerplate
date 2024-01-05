@@ -1,1 +1,5 @@
-<%= %>
+<div class="px-2 py-2">
+  <%= form_with url: "/authorization/logout", method: :post do |form| %>
+    <%= render "shared/button_default", copy: 'Log Out' %>
+  <% end %>
+</div>

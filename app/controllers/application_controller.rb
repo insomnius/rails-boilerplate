@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
                          backtrace:  exception.backtrace[0..8]
                        })
 
-    render status: :internal_server_error, json: { errors: [{ detail: 'internal server error' }] }
+    internal_server_error
   end
 
   rescue_from Errors do |error|
