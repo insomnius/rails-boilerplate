@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Usage: ./install.sh 'your application'
+# Example: ./install.sh 'your_application'
+
+# Check if input argument is provided
+if [ -z "$1" ]; then
+  echo "Error: You must provide an application name."
+  echo "Usage: $0 'your_application'"
+  exit 1
+fi
+
+NEW="$1"
+
+# Convert input to lowercase replacing spaces with underscores
+LOWERCASE=$(echo "$NEW" | tr '[:upper:]' '[:lower:]' | tr ' ' '_')
+
+# Convert input to camel case
+CAMELCASE=$(echo "$NEW" | sed -r 's/(^| )(.)/\U\2/g' | tr -d ' ')
+
+echo "Replacing 'ami_ai' with $LOWERCASE and 'Ami_ai' with $CAMELCASE..."
+
+# Find all files excluding .git directory and replace the terms
+find . \( -type d -name .git -prune \) -o -type f -print0 | xargs -0 grep -l 'ami_ai\|Ami_ai' | while read -r file; do
+  sed -i "s/ami_ai/$LOWERCASE/g" "$file"
+  sed -i "s/Ami_ai/$CAMELCASE/g" "$file"
+done
+
+echo "Replacement complete."
+
+# Call the script with ./install.sh 'your_application' to replace with 'your_application'
