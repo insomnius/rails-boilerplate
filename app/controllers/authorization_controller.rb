@@ -17,7 +17,7 @@ class AuthorizationController < ApplicationController
 
     credential = params['credential']
     g_csrf_token = params['g_csrf_token']
-    client_id = params['client_id']
+    client_id = params['client_id'] || ENV['GOOGLE_CLIENT_ID']
 
     form = AuthorizationService::Form::LoginOrRegister.new(credential, g_csrf_token, client_id)
     return redirect_to '/authorization', flash: Errors.from_active_record_validation_errors(form.errors).to_h unless form.valid?

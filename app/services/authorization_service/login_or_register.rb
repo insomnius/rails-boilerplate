@@ -33,7 +33,7 @@ module AuthorizationService
     private
 
     def client_id
-      ENV['GOGGLE_CLIENT_ID']
+      ENV['GOOGLE_CLIENT_ID']
     end
 
     def google_jwk_source

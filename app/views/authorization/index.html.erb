@@ -1,14 +1,12 @@
 <%= content_for :head do %>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <div id="g_id_onload"
-        data-client_id="<%= ENV['GOGGLE_CLIENT_ID'] %>"
+        data-client_id="<%= ENV['GOOGLE_CLIENT_ID'] %>"
         data-ux_mode="redirect"
         data-size="large"
         data-login_uri="<%= ENV['APPLICATION_BASE_URL'] %>/authorization/login">
   </div>
 <% end %>
-
-
 <div class="px-2 py-2">
   <p class="text-md">Login - Boilerplate</p>
   <div class="py-2">
