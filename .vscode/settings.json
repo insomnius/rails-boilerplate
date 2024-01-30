@@ -1,0 +1,22 @@
+{
+  "tailwindCSS.experimental.configFile": "config/tailwind.config.js",
+  "files.associations": {
+    "*.erb": "erb",
+    "*.svg": "html",
+  },
+  "emmet.includeLanguages": {
+    "erb": "html",
+  },
+  "emmet.showSuggestionsAsSnippets": true,
+  "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.includeLanguages": {
+    "javascript": "javascript",
+    "html": "html",
+    "erb": "html"
+  },
+  "editor.inlineSuggest.enabled": true,
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "rubyLsp.formatter": "rubocop",
+}
