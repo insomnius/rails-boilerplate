@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 return unless Rails.env.production?
+return if ENV['DOCKER_BUILD'] == '1' # if docker build then skip
 
 require 'prometheus_exporter/middleware'
 require 'prometheus_exporter/instrumentation'

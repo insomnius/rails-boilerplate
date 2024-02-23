@@ -8,7 +8,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-Dotenv.load!
+Dotenv.load! unless Rails.env.production?
 
 module RailsBoilerplate
   class Application < Rails::Application

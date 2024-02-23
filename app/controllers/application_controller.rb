@@ -76,14 +76,4 @@ class ApplicationController < ActionController::Base
   def catch_unrecognized
     not_found
   end
-
-  private
-
-  def render_error(status, msg)
-    render status:, json: {
-      errors: [{
-        detail: msg
-      }]
-    }
-  end
 end
