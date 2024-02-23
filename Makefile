@@ -7,3 +7,9 @@ gen_app_private_key:
 
 gen_app_public_key:
 	 openssl rsa -pubout -in private_key.pem -out public_key.pem
+
+reload_db:
+	rails db:drop
+	rails db:create
+	rails db:migrate
+	rails db:seed

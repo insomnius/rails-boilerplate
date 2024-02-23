@@ -28,4 +28,9 @@ done
 
 echo "Replacement complete."
 
+echo "Generating private_key.pem and public_key.pem"
+
+make gen_app_private_key
+make gen_app_public_key
+
 # Call the script with ./install.sh 'your_application' to replace with 'your_application'
