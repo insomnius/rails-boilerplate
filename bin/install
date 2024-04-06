@@ -34,3 +34,13 @@ make gen_app_private_key
 make gen_app_public_key
 
 # Call the script with ./install.sh 'your_application' to replace with 'your_application'
+
+echo "Prepare dependencies..."
+
+cp env.sample .env
+
+docker-compose up -d
+
+rails db:create
+rails db:migrate
+rails db:seed
