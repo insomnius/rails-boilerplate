@@ -41,6 +41,10 @@ cp env.sample .env
 
 docker-compose up -d
 
+bundle install
+
 rails db:create
 rails db:migrate
 rails db:seed
+
+rails tailwindcss:install
