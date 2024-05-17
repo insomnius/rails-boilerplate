@@ -5,5 +5,5 @@
 
 require_relative 'config/application'
 
-Dotenv.load! unless Rails.env.production? && if ENV['DOCKER_BUILD'] == '1' # if docker build then skipDotenv.load!
+Dotenv.load! unless Rails.env.production? && ENV['DOCKER_BUILD'] != '1'
 Rails.application.load_tasks
